@@ -1,3 +1,4 @@
 /environments/*
 /__pycache__/*
 /.vscode/*
+/pages/__pycache__/*
