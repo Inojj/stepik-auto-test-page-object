@@ -38,7 +38,7 @@ class ProductPage(BasePage):
         assert added_book == book_name, "Book added to cart differs from current book name"
 
     def cart_price_msg_equals_item_price(self):
-        item_price = self.get_item_price()
+        item_price = self.item_price()
         cart_total = self.browser.find_element(*ProductPageLocators.TOTAL_PRICE_CARD).text
         assert item_price == cart_total, "Cart total is differs from Item price"
 
