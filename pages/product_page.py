@@ -47,5 +47,5 @@ class ProductPage(BasePage):
             "Successfully added to cart message appears without any action"
 
     def disappeared_success_message(self):
-        assert self.is_element_disappeared(*ProductPageLocators.ITEM_ADDED_TO_CART),\
+        assert self.is_disappeared(*ProductPageLocators.ITEM_ADDED_TO_CART),\
             "Success message is not disappeared"
