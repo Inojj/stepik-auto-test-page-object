@@ -15,3 +15,4 @@ class ProductPageLocators():
     ITEM_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     ITEM_ADDED_TO_CART = (By.CSS_SELECTOR, ".alert-success strong")
     TOTAL_PRICE_CARD = (By.CSS_SELECTOR, ".alert-info strong")
+    SUCCESS_MESSAGES = (By.CSS_SELECTOR, ".alertinner strong")

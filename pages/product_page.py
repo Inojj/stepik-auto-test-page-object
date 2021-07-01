@@ -1,7 +1,9 @@
 import math
 from .base_page import BasePage
 from.locators import ProductPageLocators
-from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
+from selenium.webdriver.support.wait import WebDriverWait
 
 class ProductPage(BasePage):
     def solve_quiz_and_get_code(self):
@@ -18,6 +20,7 @@ class ProductPage(BasePage):
         except NoAlertPresentException:
             print("No second alert presented")
 
+    
     def add_to_basket(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         button.click()
@@ -43,9 +46,11 @@ class ProductPage(BasePage):
         assert item_price == cart_total, "Cart total is differs from Item price"
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.ITEM_ADDED_TO_CART),\
-            "Successfully added to cart message appears without any action"
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGES), \
+        "Success message is presented, but should not be"
 
     def disappeared_success_message(self):
-        assert self.is_disappeared(*ProductPageLocators.ITEM_ADDED_TO_CART),\
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGES),\
             "Success message is not disappeared"
+
+
